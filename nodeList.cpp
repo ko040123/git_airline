@@ -67,6 +67,22 @@ list* nodeList::FindNodeByTicket(int ticketNumber)
     }
     return foundNode;
 }
+/*
+list* nodeList::FindNodeByCity(string cityName)
+{
+    // Loop backwards through the list to find a node with some ticket number
+
+    list* foundNode = this->tail;
+    while (foundNode != NULL)
+    {
+        if (foundNode->city == cityName)
+        {
+            break;
+        }
+        foundNode = foundNode->prev;
+    }
+    return foundNode;
+}*/
 
 void nodeList::printList()
 {
@@ -78,7 +94,8 @@ void nodeList::printList()
     list* node = this->head;
     while (node != NULL)  // while has a lowercase w
     {
-       cout << node;
+       cout << endl;
+       // cout << node;
        cout << *node;
        node = node->next;
     }

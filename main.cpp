@@ -15,9 +15,10 @@ Double Linked List Reservation Program
 
 using namespace std;
 
-int randTicket(int low, int high);
+int randTicket();
+int randCity();
 void clear();
-
+string cities[] = {"Seoul", "Paris", "NewYork", "Tokyo","LA","Liverpool","Rome","Toronto","Alaska","Madrid"};
 int main()
 {
     srand((unsigned)time(NULL));
@@ -33,6 +34,7 @@ int main()
              << "3. Check a ticket\n"
              << "4. Display Passengers\n"
              << "5. EXIT\n"
+             << "6. Change Destination\n"
              << "Choice: ";
         cin >> choice;
 
@@ -44,8 +46,10 @@ int main()
                 cout << "Enter Name: ";
                 string name;
                 cin >> name;
-                int tix = randTicket(0,5);
-                list* newTicket = new list(name,tix);
+                int tix = randTicket();
+                int cit = randCity();
+                string C = cities[cit];
+                list* newTicket = new list(name,tix, C);
                 nl->addToHead(newTicket);
                 cout << "Ticket reservation sucessful!\n";
                 cout << "Your ticket information is the latest one\n";
@@ -75,7 +79,7 @@ int main()
             {
                 cout << "Checking a ticket\n\n";
                 int ticketToFind;
-                cout << "enter ticket";
+                cout << "Enter ticket number: ";
                 cin >> ticketToFind;
                 list* foundTicket = nl->FindNodeByTicket(ticketToFind);
                 if (foundTicket != NULL)
@@ -104,6 +108,27 @@ int main()
                 break;
             }
 
+            case 6:
+            {
+                string newCity;
+                int ticketNum;
+                cout << "\nChanging Destination\n\n";
+                cout << "Enter Ticket Number: ";
+                cin >> ticketNum;
+                list* foundTicket = nl->FindNodeByTicket(ticketNum);
+                if (foundTicket == NULL){cout << "no ticket found"; break;}
+                cout << endl;
+        
+                cout << ":::Selection Provided Below...:::\n";
+                for(int i = 1; i < 10; i = i+2) cout << cities[i-1] << "\t\t" << cities[i] << endl;
+                cout << "Enter a new Destination: ";
+                cin >> newCity;
+
+                foundTicket->city = newCity;
+
+                break;
+            }
+
             default:
             {
                 cout << "Invalid Input\n\n";
@@ -116,14 +141,17 @@ int main()
     return 0;
 }
 
-int randTicket(int low, int high)
+int randTicket()
 {//randomizes ticket
-    int num1;
-    int range=(high-low);
-    int num = rand() * range / RAND_MAX + low ;
-    return(num1);
+    int num = rand();
+    return num % 100000;
 }
 
+int randCity()
+{//random City
+    int num = rand();
+    return num % 10;
+}
 void clear()
 { //free up clutter
     int a = 1;

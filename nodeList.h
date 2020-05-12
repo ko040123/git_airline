@@ -12,6 +12,7 @@ class nodeList
     void addToHead(list* newOne);
     void deleteNode(list* toDelete);
     list* FindNodeByTicket(int ticketNumber);
+    //list* FindNodeByCity(string cityName);
     void printList();
 
     private:

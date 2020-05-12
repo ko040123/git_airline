@@ -13,10 +13,12 @@ class list
     friend class nodeList;
 
     public:
-    list(string name = "none",int ticket = 0);
+    list(string name = "none",int ticket = 0, string city = "none");
+    string city;
 
     private:
 
+    
     string name;
     int ticket;
     list* next;

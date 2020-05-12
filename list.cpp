@@ -2,10 +2,10 @@
 
 using namespace std;
 
-list::list(string n,int t):name(n),ticket(t), next(NULL), prev(NULL)
+list::list(string n,int t,string c):name(n),ticket(t), city(c), next(NULL), prev(NULL)
 {}
 
 ostream& operator<<(ostream& os, const list& l)
 {
-    return os << "Name: " << l.name << "\tTicket Number: " << l.ticket << "\n";
+    return os << "Name: " << l.name << "\t\tTicket Number: " << l.ticket <<"\t\tDestination: " << l.city<< "\n";
 }
