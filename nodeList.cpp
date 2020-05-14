@@ -67,22 +67,22 @@ list* nodeList::FindNodeByTicket(int ticketNumber)
     }
     return foundNode;
 }
-/*
-list* nodeList::FindNodeByCity(string cityName)
+
+list* nodeList::FindNodeByName(string Name)
 {
     // Loop backwards through the list to find a node with some ticket number
 
     list* foundNode = this->tail;
     while (foundNode != NULL)
     {
-        if (foundNode->city == cityName)
+        if (foundNode->name == Name)
         {
             break;
         }
         foundNode = foundNode->prev;
     }
     return foundNode;
-}*/
+}
 
 void nodeList::printList()
 {

@@ -2,6 +2,7 @@
 #include <cstdlib>
 #include <stdio.h>
 #include <cmath>
+#include <time.h>
 #include <algorithm>
 #include <string>
 #include "nodeList.h"
@@ -78,10 +79,10 @@ int main()
             case 3:
             {
                 cout << "Checking a ticket\n\n";
-                int ticketToFind;
-                cout << "Enter ticket number: ";
-                cin >> ticketToFind;
-                list* foundTicket = nl->FindNodeByTicket(ticketToFind);
+                string findName;
+                cout << "Enter name: ";
+                cin >> findName;
+                list* foundTicket = nl->FindNodeByName(findName);
                 if (foundTicket != NULL)
                 {
                     cout << *foundTicket;
